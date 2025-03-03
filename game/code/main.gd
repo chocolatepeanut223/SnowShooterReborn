@@ -117,6 +117,7 @@ func _on_reload():
 	ammo_in_mag = Global.currentGuns[7]
 	$CanvasLayer/Control/Label.text = "Ammo: " + str(ammo_in_mag)
 	reloading = false
+	print('this is changed')
 
 
 func spawn_zombie():
