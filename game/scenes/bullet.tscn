@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2qnct0ptu0xh"]
+
+[ext_resource type="Script" path="res://game/code/bullet.gd" id="1_4cdji"]
+[ext_resource type="Texture2D" uid="uid://cs2dhejj7uk2b" path="res://game/resources/player/pixil-frame-0 (4).png" id="1_ch3xt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehewf"]
+size = Vector2(11, 4)
+
+[node name="Bullet" type="Area2D"]
+z_index = 1
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_4cdji")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, 0)
+rotation = 1.5708
+texture = ExtResource("1_ch3xt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_ehewf")
+
+[node name="BulletDespawn" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="BulletDespawn" to="." method="_on_bullet_despawn_timeout"]

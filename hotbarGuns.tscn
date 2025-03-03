@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2w043jmcv4ld"]
+
+[ext_resource type="Texture2D" uid="uid://dacxvsefu55ph" path="res://game/resources/map/pixil-frame-0 (15).png" id="1_2ts5j"]
+[ext_resource type="Texture2D" uid="uid://dtmxvl70cwcsd" path="res://game/resources/map/pixil-frame-0 (13).png" id="2_x2ywh"]
+[ext_resource type="Script" path="res://hotbar_guns.gd" id="3_iup0l"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_duq6q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2ts5j")
+}],
+"loop": true,
+"name": &"pistol",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x2ywh")
+}],
+"loop": true,
+"name": &"rifle",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="AnimatedSprite2D"]
+z_index = 3
+rotation = -0.523599
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_duq6q")
+animation = &"rifle"
+script = ExtResource("3_iup0l")

@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://e7d6nrych7qb"]
+
+[ext_resource type="Script" path="res://game/code/normal_zombie.gd" id="1_k3xxm"]
+[ext_resource type="Script" path="res://game/code/zombiebulletdetection.gd" id="2_5oam3"]
+[ext_resource type="Texture2D" uid="uid://cwphm6rd86sdx" path="res://game/resources/enemy/pixil-frame-0 (6).png" id="2_pthhk"]
+
+[node name="NormalZombie" type="CharacterBody2D"]
+z_index = 1
+collision_mask = 2
+script = ExtResource("1_k3xxm")
+
+[node name="Area2D" type="Area2D" parent="."]
+rotation = 1.5708
+script = ExtResource("2_5oam3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(4, -18, -8, -18, -16, -3, -16, 5, -2, 11, 4, 11, 17, 5, 17, -3, 7, -18)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6, 0)
+rotation = 1.5708
+texture = ExtResource("2_pthhk")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = 1.5708
+polygon = PackedVector2Array(5, -16, -5, -16, -14, -2, -14, 3, -1, 9, 3, 9, 15, 4, 15, -2)
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="shot" from="Area2D" to="." method="_on_area_2d_shot"]
